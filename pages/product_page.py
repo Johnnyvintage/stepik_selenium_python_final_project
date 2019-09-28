@@ -20,7 +20,7 @@ class ProductPage(BasePage):
         self.check_success_add_message()
 
     def click_button(self):
-        button = self.browser.find_element(*ProductPageLocators.BASKET_BUTTON)
+        button = self.browser.find_element(*ProductPageLocators.ADD_BASKET_BUTTON)
         button.click()
 
     def check_basket_sum(self):

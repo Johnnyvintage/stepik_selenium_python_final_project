@@ -1,6 +1,7 @@
 import pytest
 from pages.product_page import ProductPage
 from pages.login_page import LoginPage
+from pages.basket_page import BasketPage
 
 
 @pytest.mark.skip
@@ -70,9 +71,41 @@ def test_guest_can_go_to_login_page_from_product_page(browser, link):
     login_page.should_be_login_page()
 
 
+# @pytest.mark.latest
+@pytest.mark.parametrize(
+    'link', ["http://selenium1py.pythonanywhere.com/catalogue/the-city-and-the-stars_95/"])
+def test_guest_cant_see_product_in_basket_opened_from_product_page(browser, link):
+    page = ProductPage(browser, link)
+    page.open()
+    page.go_to_basket_page()
+    basket_page = BasketPage(browser, browser.current_url)
+    basket_page.should_be_basket_url()
+    basket_page.should_be_empty_basket()
 
 
+@pytest.mark.latest
+@pytest.mark.parametrize(
+    'link', ["http://selenium1py.pythonanywhere.com/catalogue/the-city-and-the-stars_95/"])
+def test_guest_cant_see_product_in_basket_opened_after_add_product(browser, link):
+    page = ProductPage(browser, link)
+    page.open()
+    #page.add_to_basket()
+    page.go_to_basket_page()
+    basket_page = BasketPage(browser, browser.current_url)
+    basket_page.should_be_basket_url()
+    basket_page.should_be_empty_basket()
 
 
+@pytest.mark.latest
+@pytest.mark.parametrize(
+    'link', ["http://selenium1py.pythonanywhere.com/catalogue/the-city-and-the-stars_95/"])
+def test_guest_can_see_product_in_basket_opened_after_add_product(browser, link):
+    page = ProductPage(browser, link)
+    page.open()
+    page.add_to_basket()
+    page.go_to_basket_page()
+    basket_page = BasketPage(browser, browser.current_url)
+    basket_page.should_be_basket_url()
+    basket_page.should_be_products_in_basket()
 
 
