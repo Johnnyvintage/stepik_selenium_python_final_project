@@ -124,3 +124,7 @@ dmypy.json
 
 # PyCharm files
 .idea/
+
+
+#Selenium Firefox Driver Logs
+geckodriver.log
