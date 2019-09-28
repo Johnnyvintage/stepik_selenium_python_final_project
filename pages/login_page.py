@@ -1,3 +1,4 @@
+import time
 from .base_page import BasePage
 from .locators import LoginPageLocators
 
@@ -20,3 +21,21 @@ class LoginPage(BasePage):
     def should_be_register_form(self):
         # реализуйте проверку, что есть форма регистрации на странице
         assert self.is_element_present(*LoginPageLocators.REGISTER_FORM), "Register form is not presented"
+
+    def register_new_user(self):
+        fakemail = str(time.time())
+        input_email = self.browser.find_element(*LoginPageLocators.REGISTER_EMAIL)
+        input_email.send_keys(fakemail+"@fakemail.org")
+        input_password = self.browser.find_element(*LoginPageLocators.REGISTER_PASSWORD)
+        input_password.send_keys(fakemail)
+        input_confirm_password = self.browser.find_element(*LoginPageLocators.REGISTER_CONFIRM_PASSWORD)
+        input_confirm_password.send_keys(fakemail)
+        button = self.browser.find_element(*LoginPageLocators.REGISTER_BUTTON)
+        button.click()
+        self.should_be_authorized_user()
+
+
+
+
+
+

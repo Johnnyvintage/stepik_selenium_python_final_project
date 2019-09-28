@@ -60,8 +60,8 @@ class BasePage():
             print("No alert presented")
 
     def go_to_login_page(self):
-        link = self.browser.find_element(*BasePageLocators.LOGIN_LINK)
-        link.click()
+        button = self.browser.find_element(*BasePageLocators.LOGIN_ICON)
+        button.click()
 
     def should_be_login_link(self):
         assert self.is_element_present(*BasePageLocators.LOGIN_LINK), "Login link is not presented"
@@ -73,9 +73,18 @@ class BasePage():
     def should_be_basket_button(self):
         assert self.is_element_present(*BasePageLocators.BASKET_BUTTON), "Basket button is not presented"
 
+    def should_be_authorized_user(self):
+        assert WebDriverWait(self.browser, 5).until(
+            EC.visibility_of_element_located(BasePageLocators.ACCOUNT_BUTTON)), "User icon is not presented," \
+                                                                                " probably unauthorised user"
 
+    def logout(self):
+        logout_button = self.browser.find_element(*BasePageLocators.LOGOUT_BUTTON)
+        logout_button.click()
 
-
+    def go_to_home_page(self):
+        link = self.browser.find_element(*BasePageLocators.HOME_LINK)
+        link.click()
 
 
 
