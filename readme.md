@@ -6,8 +6,11 @@ It is the repository with final homework project for **_chapter 4_** from course
 
 Don't forget to check requirements and activate appropriate environment!
 
-## Troubleshooting
 
+----
+Make sure you use _Python 3.7.3_!
+----
+## Troubleshooting
 ### How to activate environment and install requirements?
 
 1. Choose any folder
