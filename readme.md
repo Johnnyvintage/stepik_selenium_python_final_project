@@ -1,14 +1,14 @@
 # STEPIK HOMEWORK
 
-##Main info
+## Main info
 
 It is the repository with final homework project for **_chapter 4_** from course ["Автоматизация тестирования с помощью Selenium и Python"](https://stepik.org/course/575)
 
 Don't forget to check requirements and activate appropriate environment!
 
-##Troubleshooting
+## Troubleshooting
 
-###How to activate environment and install requirements?
+### How to activate environment and install requirements?
 
 1. Choose any folder
 2. Open the command line
@@ -23,7 +23,7 @@ Don't forget to check requirements and activate appropriate environment!
 8. Install required packages. Execute command:<br />`pip install -r requirements.txt`
 9. After the end of the process you may start tests with **pytest**
 
-###Experiencing any problems with starting tests in pytest? Try the following:
+### Experiencing any problems with starting tests in pytest? Try the following:
 
 * It may be problem with `__init__.py`.
 Try to change location of this file to `./pages/` directory or store this file simultaneously in **parent** and `./pages/` directory
