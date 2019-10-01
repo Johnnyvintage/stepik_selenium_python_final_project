@@ -3,11 +3,7 @@ from .locators import BasketPageLocators
 
 
 class BasketPage(BasePage):
-    # def should_be_basket_page(self):
-    #    self.should_be_basket_url()
-
     def should_be_basket_url(self):
-        # реализуйте проверку на корректный url адрес
         url = self.browser.current_url
         assert BasketPageLocators.BASKET_LINK in url, f"Basket link is incorrect: {url}"
 

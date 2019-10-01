@@ -1,8 +1,9 @@
 import pytest
-from pages.main_page import MainPage
-from pages.login_page import LoginPage
-from pages.basket_page import BasketPage
+from .pages.main_page import MainPage
+from .pages.login_page import LoginPage
+from .pages.basket_page import BasketPage
 LINK = "http://selenium1py.pythonanywhere.com/"
+
 
 @pytest.mark.login_guest
 class TestLoginFromMainPage():
